@@ -1,0 +1,85 @@
+.table-wrapper {
+  width: 100%;
+  /* background-color: aqua; */
+  /* max-height: 500px;*/
+  height: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  box-shadow: 0px 10px 10px #ccc;
+}
+
+.table {
+  /* position: relative; */
+  display: inline;
+  overflow: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  border-radius: 10px;
+  white-space: nowrap;
+  /* width: 100%; */
+  /* max-width: 50%; */
+  margin: auto;
+  table-layout: fixed;
+  /* overflow-x: auto; */
+  /* min-height: 500px; */
+  height: inherit;
+}
+
+.table thead {
+  background-color: #ccc;
+  color: #222;
+}
+
+.table th,
+.table td {
+  padding: 0.8rem;
+}
+
+.table td {
+  border-top: 0.5px solid #ddd;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 50px;
+  text-align: left;
+}
+
+.table tbody tr:hover {
+  background-color: #eee;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.btn-container {
+  /* position: absolute; */
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  /* left: 20%;
+  bottom: 20%; */
+}
+.btn {
+  color: black;
+  background-color: bisque;
+  border: none;
+  border-radius: 50%;
+  padding: 3px 16px;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

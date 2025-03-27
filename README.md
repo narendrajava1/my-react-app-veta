@@ -1,3 +1,19 @@
+### vs code settings for emeet:
+{
+    "workbench.iconTheme": "file-icons",
+    "git.autofetch": true,
+    "files.autoSave": "onFocusChange",
+    "emmet.showSuggestionsAsSnippets": true,
+"editor.snippetSuggestions": "top",
+"emmet.triggerExpansionOnTab": true,
+"emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "razor": "html",
+    "CSS": "css"
+},
+"emmet.useInlineCompletions": true,
+
+}
 To create a Vite ReactJS project, follow these steps:
 
 ### 1. Install Node.js and npm

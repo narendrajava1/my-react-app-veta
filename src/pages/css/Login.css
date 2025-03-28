@@ -1,0 +1,96 @@
+.login-cntr {
+  display: flex;
+  justify-content: center;
+}
+.login-cntr-box {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  /* min-height: 200px;
+  justify-content: center; */
+  /* align-items: center; */
+  padding: 10%;
+  gap: 10px;
+}
+.login-cntr-box h2 {
+  text-align: center;
+}
+
+.login-cntr-box input {
+  border: 2px solid #ccc;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease; /* Smooth transition for border color change */
+}
+
+/* Focused input styling */
+.login-cntr-box input:focus {
+  border-color: #4caf50; /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Optional: Add a subtle glow effect */
+}
+
+.login-cntr-btn {
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+}
+/* Hover effect */
+.login-cntr-btn:hover {
+  background-color: #45a049; /* Darker green background */
+  border-color: #45a049; /* Darker green border */
+}
+
+/* Active effect (when clicked) */
+.login-cntr-btn:active {
+  background-color: #3e8e41; /* Even darker green background */
+  border-color: #3e8e41; /* Even darker green border */
+  transform: scale(0.98); /* Slightly shrink the button on click */
+}
+.error-modal {
+  position: fixed;
+  z-index: 1; /* Ensure modal is on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.error-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+}
+.error-content p {
+  color: red;
+  font-weight: bold;
+}
+
+.error-content button {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-content button:hover {
+  background-color: #d9534f;
+}
+.error-box {
+  color: 'red';
+  height: 500px;
+  width: inherit;
+  position: 'fixed';
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+}

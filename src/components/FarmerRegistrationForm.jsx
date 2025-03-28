@@ -1,33 +1,31 @@
-import { FormControl } from '@mui/material';
+import { FormControl } from '@mui/material'
 import React, { useState } from 'react'
 import './FarmerRegistrationForm.css'
-export const FarmerRegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    fatherName: '',
-    dateOfBirth: '',
-    gender: '',
-    aadhaarNumber: '',
-    contactNumber: '',
-    emailAddress: '',
-  })
-
+export const FarmerRegistrationForm = ({
+  setFormData,
+  formData,
+  setFarmers,
+}) => {
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData, [name]: value
-    })
+    const { name, value } = e.target
+    setFormData((farmerData) => ({ ...farmerData, [name]: value }))
+  }
+
+  const onSubmit = (e) => {
+    setFarmers((farmers) => [...farmers, formData])
   }
   return (
-    <div>
+    <div className="farmer-form-cntr-main">
       <h2>Farmer Registration Form</h2>
-      <div className="farmer-form-cntr">
-
-        <label>Full Name:</label><input type="text"
+      <div className="farmer-add-form">
+        <label>Full Name:</label>
+        <input
+          type="text"
           name="fullName"
           value={formData.fullName}
           onChange={handleInputChange}
-          required />
+          required
+        />
         <label>Father's Name: </label>
         <input
           type="text"
@@ -80,6 +78,9 @@ export const FarmerRegistrationForm = () => {
           onChange={handleInputChange}
           required
         />
+        <button className="farmer-add-btn" onClick={onSubmit}>
+          Add
+        </button>
       </div>
     </div>
   )

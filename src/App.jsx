@@ -4,6 +4,8 @@ import { NavBar } from './components/nav/NavBar'
 import { Home } from './pages/Home'
 import { Dashboard } from './pages/Dashboard'
 import { About } from './pages/About'
+import { Login } from './pages/Login'
+import { Logout } from './pages/Logout'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <About />,
+      },
+      {
+        path: 'login',
+        element: <Login />,
+      },
+      {
+        path: 'logout',
+        element: <Logout />,
       },
     ],
   },

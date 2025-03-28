@@ -1,10 +1,28 @@
-
-.farmer-form-cntr{
-    display: flex;
-    flex-direction: column;
-    height: inherit;
+.farmer-form-cntr-main {
+  display: flex;
+  flex-direction: column;
+  padding: 2% 5%;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+  width: 40%;
+  /* background-color: gray; */
+}
+.farmer-add-form {
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  gap: 10px;
 }
 
-.farmer-form-cntr label{
-    margin: 10px 0 ;
+.farmer-add-btn {
+  display: flex;
+  align-self: flex-end;
+}
+
+button {
+  background-color: rgb(132, 243, 132);
+  padding: 10px 30px;
+  font-size: 1rem;
+  border-style: none;
+  border-radius: 5%;
+  margin-top: 15px;
 }

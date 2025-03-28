@@ -68,6 +68,13 @@ export const Dashboard = () => {
       price: 30,
     },
   ])
+
+  const [rowHead, setRowHead] = useState({
+    id: 'Id',
+    price: 'Price',
+    date: 'Date',
+    action: 'Action',
+  })
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [rowToEdit, setRowToEdit] = useState(null)
   const handleEdit = (row) => {
@@ -88,8 +95,10 @@ export const Dashboard = () => {
   return (
     <div className="dashboard-cntr">
       <div className="table-price">
+        <h2>Milk Prices</h2>
         <Table
           rows={data}
+          rowHead={rowHead}
           setIsModalOpen={setIsModalOpen}
           handleEdit={handleEdit}
           handleDelete={handleDelete}

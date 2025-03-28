@@ -17,6 +17,14 @@ export const NavBar = () => {
           <li>
             <Link to="/about">About</Link>
           </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/logout" state={{ email: 'kolli7571@gmail.com' }}>
+              Logout
+            </Link>
+          </li>
         </ul>
       </nav>
       <Outlet />

@@ -11,6 +11,8 @@ import {
   Legend,
 } from 'chart.js'
 import './LineChart.css'
+import { color } from 'chart.js/helpers'
+import zoomPlugin from 'chartjs-plugin-zoom'
 // Register chart components
 ChartJS.register(
   CategoryScale,
@@ -19,7 +21,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  zoomPlugin
 )
 export const LineChart = () => {
   // Chart data
@@ -30,7 +33,7 @@ export const LineChart = () => {
         label: 'Sales in USD',
         data: [400, 600, 800, 700, 1000, 1200], // Sales data points
         fill: false, // No filling under the line
-        borderColor: 'rgba(75,192,192,1)', // Line color
+        borderColor: 'rgb(245, 15, 15)', // Line color
         tension: 0.1, // Line tension (smoothness)
       },
     ],
@@ -39,14 +42,45 @@ export const LineChart = () => {
   const options = {
     responsive: true,
     plugins: {
+      tooltip: {
+        enabled: true,
+        backgroundColor: 'rgba(0,0,0,0.7)',
+        titleColor: '#fff', //title text color
+        bodyColor: '#fff', //body text color
+        footerColor: '#fff',
+        padding: 10,
+      },
       legend: {
         position: 'top',
+        labels: {
+          color: '#333',
+        },
       },
       title: {
         display: true,
         text: 'Price Analytics Over Time',
+        font: {
+          size: 20,
+        },
+        color: '#333',
       },
     },
+
+    //zoom configurations
+    zoom: {
+      //enable zooming
+      pan: {
+        enabled: true,
+        mode: 'xy', // allow zooming along both axis
+        speed: 10, //speed of pan
+      },
+      zoom: {
+        enabled: true,
+        mode: 'xy',
+        speed: 0.1,
+      },
+    },
+
     scales: {
       x: {
         title: {
@@ -59,6 +93,7 @@ export const LineChart = () => {
           display: true,
           text: 'Sales in USD',
         },
+        beginAtZero: true,
       },
     },
   }

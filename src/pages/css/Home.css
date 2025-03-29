@@ -21,6 +21,7 @@
 }
 
 .farmers-data-table {
+  height: 500px;
   display: inline;
   table-layout: fixed;
   scroll-behavior: smooth;
@@ -33,4 +34,30 @@
   text-overflow: ellipsis;
   padding: 0 50px;
   text-align: left;
+}
+
+.pagination-btn-box {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+.pagination-btn {
+  background-color: rgb(213, 180, 139);
+  margin: 5px;
+  border-radius: 50%;
+  width: 4rem;
+  padding: 1.2rem;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background-color: rgb(37, 37, 201);
+}
+.pagination-btn:active {
+  transform: scale(0.95);
+  background-color: darkblue;
 }

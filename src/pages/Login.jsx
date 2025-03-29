@@ -28,6 +28,7 @@ export const Login = () => {
       setLoginError('') // Clear error if login is successful
       // Redirect or update UI upon successful login (you can use navigate in React Router)
       alert('Login successful!')
+      navigation('/home')
       setIsModalVisible(false)
     }
   }

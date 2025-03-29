@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Table } from './Table'
+import styled from 'styled-components'
 
 export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -23,6 +23,10 @@ export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
       setCurrentPage(currentPage + 1)
     }
   }
+  // Handle page change
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
   return (
     <div className="farmers-data-box">
       <h1>Farmer's Data</h1>
@@ -35,7 +39,7 @@ export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
           </tr>
         </thead>
         <tbody>
-          {farmers?.map((rowData, index) => (
+          {currentItems?.map((rowData, index) => (
             <>
               <tr>
                 <td key={index}>{rowData['fullName']}</td>
@@ -51,11 +55,11 @@ export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
         </tbody>
       </table>
       {totalPages && (
-        <div>
+        <div className="pagination-btn-box">
           <button
             onClick={prevPage}
             disabled={currentPage === 1}
-            className="previous-btn btn"
+            className="pagination-btn"
           >
             Prev
           </button>
@@ -63,11 +67,11 @@ export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
           {totalPages &&
             [...Array(totalPages)].map((_, index) => (
               <button
-                className="btn"
+                className="pagination-btn"
                 key={index + 1}
                 onClick={() => paginate(index + 1)}
                 style={{
-                  margin: '0 5px',
+                  // margin: '0 5px',
                   backgroundColor:
                     currentPage === index + 1 ? '#007bff' : 'white',
                   color: currentPage === index + 1 ? 'white' : 'black',
@@ -80,7 +84,7 @@ export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
           <button
             onClick={nextPage}
             disabled={currentPage === totalPages}
-            className="next-btn btn"
+            className="pagination-btn"
           >
             Next
           </button>

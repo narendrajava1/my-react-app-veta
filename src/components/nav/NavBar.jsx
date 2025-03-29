@@ -9,7 +9,7 @@ export const NavBar = () => {
         <h2>VETA</h2>
         <ul className="nav-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link to="/dashboard">Dashboard</Link>

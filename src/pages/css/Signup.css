@@ -1,0 +1,64 @@
+.signup-cntr {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* padding: 5%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); */
+}
+.signup-cntr h2 {
+  background-color: rgba(240, 255, 254, 0.349);
+  padding: 20px 0 0 0;
+  font-size: 32px;
+}
+.signup-cntr h3 {
+  font-size: 23px;
+  padding: 0 10px 0 0;
+}
+.signup-cntr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 5%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+.signup-cntr-form-btn-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* align-self: flex-end; */
+  padding: 6px 18px;
+  text-align: center;
+}
+.signup-cntr-form-btn {
+  align-self: flex-end;
+  padding: 6px 18px;
+}
+.signup-cntr-form-btn-box span {
+  padding-top: 8px;
+  font-size: 18px;
+}
+
+.signup-sucess-pop-up-modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.signup-sucess-pop-up-modal-content {
+  background-color: #fff;
+  padding: 2rem 4rem;
+}
+.signup-sucess-pop-up-modal-content button {
+  align-self: flex-end;
+}

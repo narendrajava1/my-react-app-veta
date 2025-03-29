@@ -6,6 +6,7 @@ import { Dashboard } from './pages/Dashboard'
 import { About } from './pages/About'
 import { Login } from './pages/Login'
 import { Logout } from './pages/Logout'
+import { Signup } from './pages/Signup'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -13,8 +14,13 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Signup />,
+      },
+      {
+        path: 'home',
         element: <Home />,
       },
+
       {
         path: 'dashboard',
         element: <Dashboard />,

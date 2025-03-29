@@ -7,6 +7,13 @@ import { About } from './pages/About'
 import { Login } from './pages/Login'
 import { Logout } from './pages/Logout'
 import { Signup } from './pages/Signup'
+import { useSelector } from 'react-redux'
+import { ProtectedRoute } from './components/ProtectedRoute'
+import NotFound from './pages/NotFound'
+import { Admin } from './pages/Admin'
+import { Suspense } from 'react'
+// Loading Spinner (Fallback UI for Suspense)
+const Loading = () => <div>Loading...</div>
 const router = createBrowserRouter([
   {
     path: '/',
@@ -23,7 +30,11 @@ const router = createBrowserRouter([
 
       {
         path: 'dashboard',
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoute requiredRole={'user'}>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
       },
       {
         path: 'about',
@@ -36,6 +47,20 @@ const router = createBrowserRouter([
       {
         path: 'logout',
         element: <Logout />,
+      },
+      {
+        path: '403',
+        element: <NotFound />,
+      },
+      {
+        path: 'admin',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ProtectedRoute requiredRole={'admin'}>
+              <Admin />
+            </ProtectedRoute>
+          </Suspense>
+        ),
       },
     ],
   },

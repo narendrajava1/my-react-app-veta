@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import {} from './NavBar.css'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const NavBar = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.auth)
+  // const dispatch = useDispatch()
+  //   handleLogin=()=>{
+
+  // return("")
+  //   }
   return (
     <div>
       <nav className="nav-cntr">
@@ -18,12 +25,13 @@ export const NavBar = () => {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/admin">Admin</Link>
           </li>
           <li>
-            <Link to="/logout" state={{ email: 'kolli7571@gmail.com' }}>
-              Logout
-            </Link>
+            <Link to="/login">{!isAuthenticated ? 'Login' : user.email}</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
           </li>
         </ul>
       </nav>

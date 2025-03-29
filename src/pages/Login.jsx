@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import './css/Login.css'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { login } from '../redux/slices/authSlice'
 export const Login = () => {
+  const dispatch = useDispatch()
   const navigation = useNavigate()
   const [user, setUser] = useState({
     email: '',
@@ -40,9 +43,13 @@ export const Login = () => {
   }
 
   const mockApiLogin = (email, password) => {
+    const fakeUser = { password: password, email: email, role: 'admin' } // Simulating a user object
+    const fakeToken = 'fake-jwt-token' // Simulating an authentication token
     return new Promise((resolve) => {
       setTimeout(() => {
         if (email === 'kolli7571@gmail.com' && password === '123456789') {
+          // Dispatch the login action with user and token
+          dispatch(login({ user: fakeUser, token: fakeToken }))
           resolve(true)
         } else {
           resolve(false)

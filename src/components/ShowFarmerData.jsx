@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 
 export const ShowFarmerData = ({ farmers, formData, rowsHead }) => {
   const [currentPage, setCurrentPage] = useState(1)

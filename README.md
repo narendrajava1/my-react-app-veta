@@ -231,3 +231,193 @@ Your application will display both a **Line Chart** and a **Pie Chart** on the p
   - If you want to show percentages on the pie chart, you can do that by setting up tooltips or using the `doughnut` chart type for more detailed segments.
 
 This setup will help you get started with **Line** and **Pie** charts in React using **Chart.js**! Let me know if you need more customization options or examples!
+
+To make the navigation bar responsive for both mobile and desktop in React, you can use CSS media queries. The goal is to adjust the layout of the navbar for different screen sizes, such as displaying a hamburger menu on mobile and a regular horizontal menu on desktop.
+
+Here’s how you can implement a responsive navbar for both mobile and desktop:
+
+### 1. Update Your `Navbar` Component
+
+We will add a hamburger menu and toggle functionality for mobile devices.
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import './App.css';
+
+const Navbar = () => {
+  const [sticky, setSticky] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className={`navbar ${sticky ? 'sticky' : ''}`}>
+      <div className="logo">
+        <h1>Logo</h1>
+      </div>
+      <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
+```
+
+### 2. Update Your CSS for Mobile and Desktop Layout
+
+Now, let’s add styles for both desktop and mobile views using CSS media queries:
+
+```css
+/* Basic styles for navbar */
+.navbar {
+  background-color: #333;
+  color: white;
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.navbar .logo h1 {
+  margin: 0;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li {
+  margin: 0 20px;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 21px;
+}
+
+.hamburger .bar {
+  height: 4px;
+  width: 100%;
+  background-color: white;
+}
+
+.nav-links.active {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #333;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar.sticky .nav-links {
+    position: fixed;
+    top: 60px; /* Adjust based on your navbar height */
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+}
+```
+
+### Explanation:
+
+1. **Hamburger Menu (Mobile)**: We use the `.hamburger` div to create the three-bar icon, which only appears when the screen width is 768px or smaller (`@media (max-width: 768px)`).
+
+2. **Menu Toggling**: We toggle the `active` class on the `ul` element (`nav-links`) when the hamburger is clicked. This shows or hides the mobile menu. On mobile, the navigation links are stacked vertically, and on desktop, they are displayed horizontally.
+
+3. **Sticky Navbar**: The sticky effect still works for both desktop and mobile. The navbar becomes sticky when you scroll down past 100px.
+
+4. **CSS Media Queries**:
+   - **Mobile View (`@media (max-width: 768px)`)**: The navbar items (`.nav-links`) are hidden by default and shown when the hamburger is clicked. The items are stacked vertically.
+   - **Desktop View (`@media (min-width: 769px)`)**: The navbar items are displayed horizontally. The hamburger menu is hidden.
+
+### Result:
+- **Desktop View**: A standard horizontal navbar with links aligned next to each other.
+- **Mobile View**: A hamburger menu appears, and when clicked, it displays the navigation links in a vertical stack.
+
+This solution ensures that your navbar works well on both mobile and desktop devices, with responsive behavior.
+
+

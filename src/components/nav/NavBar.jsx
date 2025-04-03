@@ -31,7 +31,7 @@ export const NavBar = () => {
             <Link to="/login">{!isAuthenticated ? 'Login' : user.email}</Link>
           </li>
           <li>
-            <Link to="/logout">Logout</Link>
+            <Link to="/logout" style={{pointerEvents:(user?.email)?'auto':'none',opacity:(user?.email)?1:0.5}}>Logout</Link>
           </li>
         </ul>
       </nav>
